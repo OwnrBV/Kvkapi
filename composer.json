@@ -1,0 +1,23 @@
+{
+  "name": "ownrbv/kvkapi",
+  "license": "MIT",
+  "require": {
+    "ext-json": "*",
+    "laravel/framework": "5.8.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Owner\\KvkApi\\": "src"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    },
+    "laravel": {
+      "providers": [
+        "Owner\\KvkApi\\ServiceProvider"
+      ]
+    }
+  }
+}
