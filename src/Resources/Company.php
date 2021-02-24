@@ -44,6 +44,20 @@ class Company implements Arrayable
         return Arr::get($this->payload, 'branchNumber');
     }
 
+    public function retrieveName($payload){
+
+        $businessName = Arr::get($this->payload, 'tradeNames.businessName');
+        $shortBusinessName = Arr::get($this->payload, 'tradeNames.shortBusinessName');
+
+        if($businessName){
+            return $businessName;
+        } else if($shortBusinessName){
+            return $shortBusinessName;
+        }
+
+        return '';
+    }
+
     /**
      * Retrieve the primary name of this company.
      *
@@ -51,7 +65,7 @@ class Company implements Arrayable
      */
     public function name(): ?string
     {
-        return Arr::get($this->payload, 'tradeNames.businessName');
+        return $this->retrieveName($this->payload);
     }
 
     /**
