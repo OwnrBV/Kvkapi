@@ -54,7 +54,9 @@ class Companies
                 );
 
                 foreach (Arr::get($data, 'data.items') as $company) {
-                    $collection->push(new Resources\Company($company));
+                    if(isset($company['isMainBranch']) && $company['isMainBranch'] === true){
+                        $collection->push(new Resources\Company($company));
+                    }
                 }
 
                 return $collection;
